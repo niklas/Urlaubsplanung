@@ -1,0 +1,16 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/test
+.bundle
+db/*.sqlite3*
+log/*.log
+tmp/**/*
+*.swp
+*.swo
+capybara-*.html
+public/stylesheets/*.css
+.sass-cache
+rerun.txt
+
+.sass-cache/
