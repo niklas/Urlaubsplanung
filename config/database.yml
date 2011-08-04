@@ -15,3 +15,6 @@ production:
   adapter: postgresql
   database: urlaub_production
   pool: 5
+
+cucumber:
+  <<: *test
