@@ -35,7 +35,16 @@ module Urlaub
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
+    config.filter_parameters += [:password]    
+    # Customize generators
+    config.generators do |g|
+      g.stylesheets false
+      g.form_builder :simple_form
+      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+      g.test_framework :rspec, :fixture => false, :views => false
+      g.intergration_tool :rspec
+    end
+
 
     # Enable the asset pipeline
     config.assets.enabled = true
