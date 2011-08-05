@@ -5,7 +5,7 @@ Feature: Remaining time for boss
 
   Background:
     Given a boss exists
-      And a the following workers exist:
+      And the following workers exist:
         | worker |
         | Peter  |
         | Paul   |
