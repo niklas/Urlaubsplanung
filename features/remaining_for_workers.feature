@@ -4,7 +4,7 @@ Feature: Remaining time for workers
   I want to know how much leave time I have left this year
 
   Background:
-    Given a worker exists with started_on: 2011-08-01
+    Given a worker exists with started_on: "2011-08-01"
       And today is 2011-08-02
       And I am logged in as the worker
 
