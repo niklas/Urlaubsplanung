@@ -55,3 +55,11 @@ gem "factory_girl_rails", "~> 1.1.0", :group => :test
 gem "spork", "~> 0.9.0.rc2", :group => :test
 gem "email_spec", :group => :test
 gem "fuubar-cucumber", :group => :test
+
+group :development, :test do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'guard-spork'
+  gem 'libnotify'
+end
