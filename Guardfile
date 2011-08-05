@@ -1,12 +1,14 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
-  watch('config/application.rb')
-  watch('config/environment.rb')
-  watch(%r{^config/environments/.+\.rb$})
-  watch(%r{^config/initializers/.+\.rb$})
-  watch('spec/spec_helper.rb')
+unless %w(NO_SPORK SKIP_SPORK DISABLE_SPORK).any? {|var| ENV.has_key?(var) }
+  guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
+    watch('config/application.rb')
+    watch('config/environment.rb')
+    watch(%r{^config/environments/.+\.rb$})
+    watch(%r{^config/initializers/.+\.rb$})
+    watch('spec/spec_helper.rb')
+  end
 end
 
 guard 'rspec', :version => 2 do
