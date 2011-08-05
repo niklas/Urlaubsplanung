@@ -21,7 +21,7 @@ Feature: Remaining time for boss
 
   Scenario: three workers took some leave in July, affecting saldo for each worker
      Given the following leaves exist:
-        | worker         | from       | duration | state |
+        | worker         | first_day  | duration | state |
         | worker "Peter" | 2011-07-01 | 1        | taken |
         | worker "Paul"  | 2011-07-02 | 2        | taken |
         | worker "Mary"  | 2011-07-03 | 4        | taken |
@@ -34,7 +34,7 @@ Feature: Remaining time for boss
 
   Scenario: one worker scheduled one leave per month
      Given the following leaves exist:
-        | worker        | from       | duration | state     |
+        | worker        | first_day  | duration | state     |
         | worker "Mary" | 2011-07-23 | 1        | taken     |
         | worker "Mary" | 2011-08-02 | 4        | taken     |
         | worker "Mary" | 2011-09-02 | 2        | confirmed |
@@ -48,7 +48,7 @@ Feature: Remaining time for boss
 
   Scenario: workers requested and took leaves in the same month
       Given the following leaves exist:
-        | worker         | from       | duration | state     |
+        | worker         | first_day  | duration | state     |
         | worker "Peter" | 2011-08-10 | 1        | requested |
         | worker "Peter" | 2011-08-20 | 2        | confirmed |
         | worker "Paul"  | 2011-08-03 | 4        | taken     |
