@@ -9,14 +9,78 @@ Feature: Remaining time for workers
 
   Scenario: No vacation taken
      Then I should see "10" within remaining days
+      And I should see the following leaves table:
+        |           | beantragt | genehmigt | genommen |
+        | Januar    |           |           |          |
+        | Februar   |           |           |          |
+        | März      |           |           |          |
+        | April     |           |           |          |
+        | Mai       |           |           |          |
+        | Juni      |           |           |          |
+        | Juli      |           |           |          |
+        | August    |           |           |          |
+        | September |           |           |          |
+        | Oktober   |           |           |          |
+        | November  |           |           |          |
+        | Dezember  |           |           |          |
+        | Saldo     | 10        | 10        | 10       |
 
-  Scenario: 3 days vacation requested, but not confirmed
-    Given a leave request exists with worker: the worker, from: 2011-08-10, until: 2011-08-14
+  Scenario: 5 days vacation requested, but not confirmed
+    Given a leave request exists with worker: the worker, from: 2011-08-10, duration: 5
       And I am on my dashboard
      Then I should see "10" within remaining days
+      And I should see the following leaves table:
+        |           | beantragt | genehmigt | genommen |
+        | Januar    |           |           |          |
+        | Februar   |           |           |          |
+        | März      |           |           |          |
+        | April     |           |           |          |
+        | Mai       |           |           |          |
+        | Juni      |           |           |          |
+        | Juli      |           |           |          |
+        | August    | 5         |           |          |
+        | September |           |           |          |
+        | Oktober   |           |           |          |
+        | November  |           |           |          |
+        | Dezember  |           |           |          |
+        | Saldo     | 5         | 10        | 10       |
 
-  Scenario: 3 days vacation requested and confirmed
-    Given a confirmed leave exists with worker: the worker, from: 2011-08-10, until: 2011-08-14
+  Scenario: 5 days vacation requested and confirmed
+    Given a confirmed leave exists with worker: the worker, from: 2011-08-10, duration: 5
+      And I am on my dashboard
+     Then I should see "10" within remaining days
+      And I should see the following leaves table:
+        |           | beantragt | genehmigt | genommen |
+        | Januar    |           |           |          |
+        | Februar   |           |           |          |
+        | März      |           |           |          |
+        | April     |           |           |          |
+        | Mai       |           |           |          |
+        | Juni      |           |           |          |
+        | Juli      |           |           |          |
+        | August    | 5         | 5         |          |
+        | September |           |           |          |
+        | Oktober   |           |           |          |
+        | November  |           |           |          |
+        | Dezember  |           |           |          |
+        | Saldo     | 5         | 5         | 10       |
+
+  Scenario: 5 days vacation requested, confirmed and taken
+    Given a taken leave exists with worker: the worker, from: 2011-08-10, duration: 5
       And I am on my dashboard
      Then I should see "5" within remaining days
-
+      And I should see the following leaves table:
+        |           | beantragt | genehmigt | genommen |
+        | Januar    |           |           |          |
+        | Februar   |           |           |          |
+        | März      |           |           |          |
+        | April     |           |           |          |
+        | Mai       |           |           |          |
+        | Juni      |           |           |          |
+        | Juli      |           |           |          |
+        | August    | 5         | 5         | 5        |
+        | September |           |           |          |
+        | Oktober   |           |           |          |
+        | November  |           |           |          |
+        | Dezember  |           |           |          |
+        | Saldo     | 5         | 5         | 5        |
