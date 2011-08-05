@@ -62,4 +62,6 @@ group :development, :test do
   gem 'guard-cucumber'
   gem 'guard-spork'
   gem 'libnotify'
+
+  gem 'pry'
 end
