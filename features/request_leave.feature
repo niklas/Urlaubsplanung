@@ -3,7 +3,7 @@ Feature: Request leave
   As a worker
   I want to request my leave
 
-  Scenario: Request for leave in the futre
+  Scenario: Request for leave in the future
     Given today is 2011-08-01
       And I am logged in
      When I follow "neuer Urlaubsantrag"
