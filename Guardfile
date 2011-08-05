@@ -8,6 +8,7 @@ unless %w(NO_SPORK SKIP_SPORK DISABLE_SPORK).any? {|var| ENV.has_key?(var) }
     watch(%r{^config/environments/.+\.rb$})
     watch(%r{^config/initializers/.+\.rb$})
     watch('spec/spec_helper.rb')
+    watch 'Gemfile.lock'
   end
 end
 
